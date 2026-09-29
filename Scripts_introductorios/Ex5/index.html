@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <h2>Tipus d'iva</h2>
+
+    <p>Selecciona el tipus d'iva que vols per sempre</p>
+
+    <form action="logic.php" method="get"> 
+
+
+        Euros <input type="number" name="quant" min="0"> sin iva <br>
+
+        <label for="ivas">Escull l'iva:</label>
+        <select id="iva" name="iva">
+            <option value="0.21">21%</option>
+            <option value="0.10">10%</option>
+            <option value="0.04">4%</option>
+            <option value="0.01">1%</option>
+        </select> <br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</html>
