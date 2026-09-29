@@ -13,4 +13,6 @@
         echo "Bona nit";
     }
 
+    echo "<br>";
+    echo "La hora del servidor es " . date("H:i:s a");
 ?>
