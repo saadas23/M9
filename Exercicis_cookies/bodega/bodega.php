@@ -29,25 +29,35 @@
 
 <?php
 
-    if(isset($_GET["edad"])){
+    if (isset($_GET["edad"]) || isset($_GET["idioma"]) || isset($_GET["moneda"])) {
+        
+        if (isset($_GET["edad"])){
+            
         if ($_GET["edad"] == "true"){
-            $edad = 1;
-        }else{
-            $edad = 0;
+                $edad = 1;
+            }else{
+                $edad = 0;
+            }
+
+            setcookie("majoredat", $edad );
         }
-        
-        setcookie("majoredat", $edad );
-        
-    }
-    
 
-    if(isset($_GET["idioma"])){
-        setcookie("idioma", $_GET["idioma"]);
+        if(isset($_GET["idioma"])){
+            setcookie("idioma", $_GET["idioma"]);
+        }
+        if(isset($_GET["moneda"])){
+            setcookie("moneda", $_GET["moneda"]);
+        }
+
+        //guardo las cookies en la primera petición 
+
+        //obligo a pasar por la siguiente petición redirigiendo al mismo sitio y acabando la ejecución de php 
+        header("Location: bodega.php");
+        exit;
     }
 
-    if(isset($_GET["moneda"])){
-        $moneda = $_GET["moneda"];
-        setcookie("moneda", $moneda);
+    if(isset($_COOKIE["moneda"])){
+        $moneda = $_COOKIE["moneda"];
         switch ($moneda){
             case "euros":
                 $moneda_simbolo = "€";
